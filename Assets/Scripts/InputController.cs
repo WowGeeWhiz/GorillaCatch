@@ -9,11 +9,13 @@ public class InputController : MonoBehaviour
     Vector2 touchStartPosition, touchEndPosition;
     bool movePlayer = true;
     public PlayerController player;
+    float maxX, maxY;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        maxX = Screen.width; 
+        maxY = Screen.height;
     }
 
     // Update is called once per frame
@@ -32,12 +34,18 @@ public class InputController : MonoBehaviour
         {
             touchEndPosition = touch.position;
         }
+        else if (touch.phase == TouchPhase.Ended)
+        {
+            touchStartPosition = touchEndPosition = Vector2.zero;
+        }
 
-        float x = touchEndPosition.x - touchStartPosition.x;
-        float y = touchEndPosition.y - touchStartPosition.y;
+        float x = (touchEndPosition.x - touchStartPosition.x) / maxX;
+        float y = (touchEndPosition.y - touchStartPosition.y) / maxY;
+        Debug.Log($"x={x}  y={y}");
         if (movePlayer)
         {
-            player.transform.position += new Vector3(x, 0, 0);
+            if (x > 0) player.transform.position += new Vector3(player.xSpeed, 0, 0);
+            else if (x < 0) player.transform.position += new Vector3(-player.xSpeed, 0, 0);
         }
 
     }
