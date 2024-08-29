@@ -14,6 +14,7 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.SetResolution(Screen.width, Screen.height, true);
         maxX = Screen.width; 
         maxY = Screen.height;
     }
