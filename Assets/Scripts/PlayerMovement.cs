@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position = Vector3.zero;
             rb.velocity = Vector3.zero;
         }
+
     }
 
     public void FixedUpdate()
@@ -67,5 +68,22 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(movement * speed);
         // Apply force to the Rigidbody to move the player.
         rb.AddForce(movement * speed, ForceMode.Force);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            Debug.Log("Collision");
+            transform.parent = other.transform;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            transform.parent = null;
+        }
     }
 }
