@@ -21,22 +21,26 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void FixedUpdate()
+    private void Update()
     {
-
-        if (Input.GetButton("Jump") && IsGrounded())
+        if(transform.position.y <= -1.5f)
         {
-            Jump();
+            transform.position = Vector3.zero;
+            rb.velocity = Vector3.zero;
         }
-
-        ApplyMovement();
-
-
     }
 
-    public void Jump()
+    public void FixedUpdate()
     {
-        rb.AddForce(transform.up * jumpForce);
+        ApplyMovement();
+    }
+
+    public void OnJump()
+    {
+        if (IsGrounded())
+        {
+            rb.AddForce(transform.up * jumpForce);
+        }
     }
 
     bool IsGrounded() //Technically this can cause bugs, but the odds are very low
@@ -60,8 +64,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // Create a 3D movement vector using the X and Y inputs.
         Vector3 movement = new Vector3(movementX, 0.0f, movementZ);
-
+        Debug.Log(movement * speed);
         // Apply force to the Rigidbody to move the player.
-        rb.AddForce(movement * speed);
+        rb.AddForce(movement * speed, ForceMode.Force);
     }
 }
