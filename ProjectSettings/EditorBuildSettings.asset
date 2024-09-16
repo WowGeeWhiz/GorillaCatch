@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: ba777c614c8cffc45ade0c992975d5f7
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: dcb24a632a16b7d4cb729376e37d1de7
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 50ebc1f4aac445945b297916ad4a1aa0, type: 2}
   m_UseUCBPForAssetBundles: 0
