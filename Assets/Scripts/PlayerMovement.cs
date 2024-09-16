@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     //X and Z speed
     public float speed = 10;
 
+    public bool IsGrounded = true;
+
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,16 +40,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump()
     {
-        if (IsGrounded())
+        if (IsGrounded)
         {
             rb.AddForce(transform.up * jumpForce);
         }
     }
 
-    bool IsGrounded() //Technically this can cause bugs, but the odds are very low
-    {
-        return GetComponent<Rigidbody>().velocity.y == 0;
-    }
 
     // This function is called when a move input is detected.
     void OnMove(InputValue movementValue)
@@ -75,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Platform")
         {
             Debug.Log("Collision");
+            IsGrounded = true;
             transform.parent = other.transform;
         }
     }
@@ -83,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Platform")
         {
+            IsGrounded = false;
             transform.parent = null;
         }
     }
