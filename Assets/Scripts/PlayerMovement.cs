@@ -63,16 +63,26 @@ public class PlayerMovement : MonoBehaviour
     {
         // Create a 3D movement vector using the X and Y inputs.
         Vector3 movement = new Vector3(movementX, 0.0f, movementZ);
-        Debug.Log(movement * speed);
+        //Debug.Log(movement * speed);
         // Apply force to the Rigidbody to move the player.
-        rb.AddForce(movement * speed, ForceMode.Force);
+        
+        
+        if (Vector3.Magnitude(rb.velocity) > 4)// Speed Management
+        {
+            rb.AddForce(movement * 1, ForceMode.Force);
+            Debug.Log(Vector3.Magnitude(rb.velocity));
+        }
+        else
+        {
+            rb.AddForce(movement * speed, ForceMode.Force);
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Platform")
         {
-            Debug.Log("Collision");
             IsGrounded = true;
             transform.parent = other.transform;
         }
