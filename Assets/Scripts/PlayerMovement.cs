@@ -25,11 +25,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.y <= -1.5f)
-        {
-            transform.position = Vector3.zero;
-            rb.velocity = Vector3.zero;
-        }
 
     }
 
@@ -70,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
         if (Vector3.Magnitude(rb.velocity) > 4)// Speed Management
         {
             rb.AddForce(movement * 1, ForceMode.Force);
-            Debug.Log(Vector3.Magnitude(rb.velocity));
         }
         else
         {
@@ -79,18 +73,19 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform")
         {
             IsGrounded = true;
-            transform.parent = other.transform;
+            transform.parent = collision.transform;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+
+    private void OnCollisionExit(Collision collision)
     {
-        if (other.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform")
         {
             IsGrounded = false;
             transform.parent = null;

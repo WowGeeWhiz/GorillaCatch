@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnPlatform : MonoBehaviour
 {
 
-    public Rigidbody platform;
+    public GameObject platform;
 
     public float spawnTime = 5.0f;
     // Start is called before the first frame update
@@ -23,11 +23,9 @@ public class SpawnPlatform : MonoBehaviour
     IEnumerator CreatePlatform()
     {
         
-        Rigidbody instantiatedProjectile = Instantiate(platform, transform.position, transform.rotation) as Rigidbody;
+        GameObject newPlatform = Instantiate(platform, transform.position, transform.rotation);
 
-
-
-        Destroy(instantiatedProjectile.gameObject, 20);
+        Destroy(newPlatform, 20);
 
         yield return new WaitForSeconds(spawnTime);
         StartCoroutine(CreatePlatform());

@@ -7,6 +7,7 @@ public class PlatformMove : MonoBehaviour
     public float HorizontalSpeed = -5.0f;
     public float VerticalSpeed = 0.0f;
     Rigidbody rb;
+    Vector3 direction;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlatformMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.TransformDirection(new Vector3(HorizontalSpeed, 0, VerticalSpeed));
+        direction = new Vector3(HorizontalSpeed, 0, VerticalSpeed);
+        transform.Translate(direction * Time.deltaTime);
     }
 }
