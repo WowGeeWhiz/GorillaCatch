@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 10;
     [SerializeField] float maxSpeed = 10;
 
-    public bool IsGrounded = true;
+    bool isGrounded = true;
+    bool canMove = true;
 
     public void Awake()
     {
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump()
     {
-        if (IsGrounded)
+        if (isGrounded)
         {
             rb.AddForce(transform.up * jumpForce);
         }
@@ -41,13 +42,15 @@ public class PlayerMovement : MonoBehaviour
     // This function is called when a move input is detected.
     void OnMove(InputValue movementValue)
     {
+        if (canMove)
+        {
+            // Convert the input value into a Vector2 for movement.
+            Vector2 movementVector = movementValue.Get<Vector2>();
 
-        // Convert the input value into a Vector2 for movement.
-        Vector2 movementVector = movementValue.Get<Vector2>();
-
-        // Store the X and Y components of the movement.
-        movementX = movementVector.x;
-        movementZ = movementVector.y;
+            // Store the X and Y components of the movement.
+            movementX = movementVector.x;
+            movementZ = movementVector.y;
+        }
     }
 
     void ApplyMovement()
@@ -63,21 +66,25 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void ToggleCanMove()
+    {
+        canMove = !canMove;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Platform")
         {
-            IsGrounded = true;
+            isGrounded = true;
             //transform.parent = collision.transform;
         }
     }
-
 
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Platform")
         {
-            IsGrounded = false;
+            isGrounded = false;
             //transform.parent = null;
         }
     }
