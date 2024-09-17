@@ -12,9 +12,9 @@ public class PlayerMovement : MonoBehaviour
     // Movement along X and Z axes.
     private float movementX;
     private float movementZ;
-
     //X and Z speed
     public float speed = 10;
+    [SerializeField] float maxSpeed = 10;
 
     public bool IsGrounded = true;
 
@@ -23,14 +23,10 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-
-    }
-
-    public void FixedUpdate()
+    public void Update()
     {
         ApplyMovement();
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
     }
 
     public void OnJump()
@@ -62,14 +58,8 @@ public class PlayerMovement : MonoBehaviour
         // Apply force to the Rigidbody to move the player.
         
         
-        if (Vector3.Magnitude(rb.velocity) > 4)// Speed Management
-        {
-            rb.AddForce(movement * 1, ForceMode.Force);
-        }
-        else
-        {
-            rb.AddForce(movement * speed, ForceMode.Force);
-        }
+        rb.AddForce(movement * speed, ForceMode.Force);
+        
 
     }
 
@@ -78,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Platform")
         {
             IsGrounded = true;
-            transform.parent = collision.transform;
+            //transform.parent = collision.transform;
         }
     }
 
@@ -88,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Platform")
         {
             IsGrounded = false;
-            transform.parent = null;
+            //transform.parent = null;
         }
     }
 }

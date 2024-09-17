@@ -24,7 +24,8 @@ public class SpawnPlatform : MonoBehaviour
     {
         
         GameObject newPlatform = Instantiate(platform, transform.position, transform.rotation);
-
+        newPlatform.transform.parent = transform;
+        
         Destroy(newPlatform, 20);
 
         yield return new WaitForSeconds(spawnTime);
