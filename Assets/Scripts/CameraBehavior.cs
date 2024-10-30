@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
-    [SerializeField] float offsetX, offsetZ;
+    [SerializeField] float offsetX, offsetY, offsetZ;
 
-    float offsetY = 3.47f;
     Transform player;
 
     private void Awake()
@@ -17,6 +16,6 @@ public class CameraBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.position.x + offsetX, offsetY, player.position.z + offsetZ); 
+        transform.position = new Vector3(player.position.x + offsetX, player.position.y + offsetY, player.position.z + offsetZ); 
     }
 }
