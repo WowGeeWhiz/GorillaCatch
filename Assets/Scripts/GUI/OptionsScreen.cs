@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class OptionsScreen : MonoBehaviour
 {
-    public GameObject settingsPanel;
-    public bool inSettings = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject mainScreen;
+    [SerializeField] GameObject settingScreen;
 
-    // Update is called once per frame
-    void Update()
-    {
-        settingsPanel.SetActive(inSettings);
-    }
 
-    public void SetSettings(bool val)
+    public void SwitchSettings()
     {
-        inSettings = val;
+        mainScreen.SetActive(!mainScreen.activeSelf);
+        settingScreen.SetActive(!settingScreen.activeSelf);
     }
 }
