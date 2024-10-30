@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool isGrounded = true;
     bool canMove = true;
+    bool isJumping = false;
 
     public void Awake()
     {
@@ -27,13 +28,17 @@ public class PlayerMovement : MonoBehaviour
     public void Update()
     {
         ApplyMovement();
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        if (isJumping == false)
+        {
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        }
     }
 
     public void OnJump()
     {
         if (isGrounded)
         {
+            isJumping = true;
             rb.AddForce(transform.up * jumpForce);
         }
     }
@@ -76,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Platform")
         {
             isGrounded = true;
+            isJumping = false;
             //transform.parent = collision.transform;
         }
     }
