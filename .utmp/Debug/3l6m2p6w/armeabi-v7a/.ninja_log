@@ -1,0 +1,5 @@
+# ninja log v5
+0	115	7520395003721161	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	705f691a56d2ab7
+116	254	7520395004684528	C:/Program Files/Unity/Game Design/GorillaCatch/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3l6m2p6w/obj/armeabi-v7a/libswappywrapper.so	4bfd61b18c904137
+2	120	7520401103601278	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	705f691a56d2ab7
+121	279	7520401104707321	C:/Program Files/Unity/Game Design/GorillaCatch/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/3l6m2p6w/obj/armeabi-v7a/libswappywrapper.so	4bfd61b18c904137
