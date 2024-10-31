@@ -62,8 +62,6 @@ public class PlayerMovement : MonoBehaviour
         
         
         rb.AddForce(movement * speed, ForceMode.Force);
-        
-
     }
 
     public void ToggleCanMove()

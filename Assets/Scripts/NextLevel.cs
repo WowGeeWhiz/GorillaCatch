@@ -20,7 +20,6 @@ public class NextLevel : MonoBehaviour
     public void Next()
     {
         audioData.Play();
-        //Application.LoadLevel(Application.loadedLevel + 1);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 }
