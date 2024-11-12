@@ -1,24 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class PlatformMove : MonoBehaviour
 {
-    public float HorizontalSpeed = -5.0f;
-    public float VerticalSpeed = 0.0f;
-    Rigidbody rb;
-    Vector3 direction;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Transform targetPos;
+    [SerializeField] float increment;
+    [SerializeField] float waitTime;
+    Vector3 startPos;
+    float interpolate = 0;
+    private void Awake()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
-        
+        startPos = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        direction = new Vector3(HorizontalSpeed, 0, VerticalSpeed);
-        transform.Translate(direction * Time.deltaTime);
+        StartCoroutine(LerpTo());
+    }
+    IEnumerator LerpTo()
+    {
+        yield return new WaitForSeconds(waitTime);
+        interpolate += increment;
+        transform.position = Vector3.Lerp(startPos, targetPos.position, interpolate);
+        //Debug.Log("Interpol: "+ interpolate +" | Increment: " + increment + " | Pos: " + transform.position);
+        if (interpolate >= 1 || interpolate <= 0)
+        {
+            increment *= -1;
+        }
     }
 }
