@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1106133513991172419}
   - component: {fileID: 339996963638497394}
   - component: {fileID: 36112997343772126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 150
   speed: 10
-  IsGrounded: 1
+  maxSpeed: 10
 --- !u!114 &36112997343772126
 MonoBehaviour:
   m_ObjectHideFlags: 0
