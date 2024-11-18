@@ -22,4 +22,10 @@ public class NextLevel : MonoBehaviour
         audioData.Play();
         SceneManager.LoadScene(1);
     }
+
+    public void AR()
+    {
+        audioData.Play();
+        SceneManager.LoadScene(2);
+    }
 }
