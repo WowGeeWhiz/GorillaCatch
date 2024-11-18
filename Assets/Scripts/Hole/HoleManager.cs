@@ -22,7 +22,7 @@ public class HoleManager : MonoBehaviour
         score = 0;
         isShooting = false;
         intensity = 1f;
-        scoreText = GameObject.Find("ScoreText+ ").GetComponent<TMP_Text>();
+        scoreText = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
     }
 
     void FixedUpdate()
