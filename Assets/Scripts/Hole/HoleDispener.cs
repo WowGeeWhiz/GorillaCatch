@@ -7,6 +7,8 @@ public class HoleDispener : MonoBehaviour
     public GameObject Hole;
     public float xSpeed = 0.1f;
     public float zSpeed = 0f;
+    public float tempX = 0f;
+    public float tempZ = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +26,23 @@ public class HoleDispener : MonoBehaviour
 
     public void LaunchHole()
     {
+
         GameObject g = Instantiate(Hole, transform.position, transform.rotation);
-        g.GetComponent<Rigidbody>().velocity = new Vector3(xSpeed, 0, zSpeed);
+
+        //Randomize range
+        if (xSpeed == 0)
+        {
+            tempX = Random.Range(-0.1f, 0.1f);
+            g.GetComponent<Rigidbody>().velocity = new Vector3(tempX, 0, zSpeed);
+        }
+            
+        if (zSpeed == 0)
+        {
+            tempZ = Random.Range(-0.1f, 0.1f);
+            g.GetComponent<Rigidbody>().velocity = new Vector3(xSpeed, 0, tempZ);
+        }
+      
+        
         Destroy(g, 5);
     }
 }
