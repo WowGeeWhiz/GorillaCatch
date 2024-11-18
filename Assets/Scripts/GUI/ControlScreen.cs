@@ -12,6 +12,14 @@ public class ControlScreen : MonoBehaviour
     public void SwitchControlScreen()
     {
         controlsScreen.SetActive(!controlsScreen.activeSelf);
+        if (controlsScreen.activeSelf == true)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     public void ToggleJoystick()
