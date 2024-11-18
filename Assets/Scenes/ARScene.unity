@@ -1032,6 +1032,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2288761557434722531, guid: 92530686812fafa4e91c85b96f27d659, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1487762683}
     - target: {fileID: 6303914882912496438, guid: 92530686812fafa4e91c85b96f27d659, type: 3}
       propertyPath: m_Name
       value: AR Level

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
+using TMPro;
 
 public class HoleManager : MonoBehaviour
 {
@@ -11,18 +12,32 @@ public class HoleManager : MonoBehaviour
     public float intensity;
     private int randDispensorStart;
 
+    public float score;
+    public TMP_Text scoreText;
+
     public void Start()
     {
         isShooting = false;
         intensity = 1f;
     }
 
-    void Update()
+    public void Awake()
     {
+
+        score = 0;
+    }
+
+    void FixedUpdate()
+    {
+        score += Time.deltaTime;
+        scoreText.text = Mathf.FloorToInt(score).ToString();
+
         // Only allow a new routine if there is none running already
         if (isShooting) return;
 
         StartCoroutine(shootRoutine());
+
+        
     }
 
     private IEnumerator shootRoutine()
