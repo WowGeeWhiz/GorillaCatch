@@ -2033,6 +2033,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.34
       objectReference: {fileID: 0}
+    - target: {fileID: 2288761557434722531, guid: 92530686812fafa4e91c85b96f27d659, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1487762683}
     - target: {fileID: 4871370175626324434, guid: 92530686812fafa4e91c85b96f27d659, type: 3}
       propertyPath: m_Mass
       value: 0.1
