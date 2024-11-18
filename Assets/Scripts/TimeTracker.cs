@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimeTracker : MonoBehaviour
 {
 
-    float startTime;
+    internal float startTime;
     // Start is called before the first frame update
     void Start()
     {

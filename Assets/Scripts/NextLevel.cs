@@ -28,4 +28,10 @@ public class NextLevel : MonoBehaviour
         audioData.Play();
         SceneManager.LoadScene(2);
     }
+
+    public void LoadScene(string scene)
+    {
+        audioData.Play();
+        SceneManager.LoadScene(scene);
+    }
 }

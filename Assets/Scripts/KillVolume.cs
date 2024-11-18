@@ -8,7 +8,7 @@ public class KillVolume : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("LoseScene");
         }
     }
 }

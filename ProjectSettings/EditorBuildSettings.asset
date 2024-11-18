@@ -14,9 +14,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARScene.unity
     guid: 2469cbb9d5dce354288b9bd4cb000120
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 334b229fc4750e84abe81033aca73fcd
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 89b0b9a880fc5b64a8eee09c111f5bb6
+  - enabled: 1
+    path: Assets/Scenes/TestLevel.unity
+    guid: ae9d61581dde26545ae31779555eb988
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: dcb24a632a16b7d4cb729376e37d1de7
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 63f033b248489a74897a812e6583cc39, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: b4e335590df6ed84e88f0e7ecf28f2e8, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 50ebc1f4aac445945b297916ad4a1aa0, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 17b9badd4a9abc6498a754c9cea27c5f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 935a8c529614cc94db140c518d622511, type: 2}
+  m_UseUCBPForAssetBundles: 0
