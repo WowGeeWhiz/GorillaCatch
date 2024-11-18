@@ -15,16 +15,14 @@ public class HoleManager : MonoBehaviour
     public float score;
     public TMP_Text scoreText;
 
-    public void Start()
-    {
-        isShooting = false;
-        intensity = 1f;
-    }
 
     public void Awake()
     {
 
         score = 0;
+        isShooting = false;
+        intensity = 1f;
+        scoreText = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
     }
 
     void FixedUpdate()
