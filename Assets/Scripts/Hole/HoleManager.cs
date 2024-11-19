@@ -44,6 +44,7 @@ public class HoleManager : MonoBehaviour
         if (isShooting) yield break;
 
         isShooting = true;
+        Debug.Log("Hole");
 
         randDispensorStart = Random.Range(0, 3);
 
